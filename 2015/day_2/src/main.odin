@@ -37,7 +37,7 @@ problem_one_solver :: proc(split_file: []string) -> (total: int) {
 
 problem_two_solver :: proc(split_file: []string) -> (total: int) {
 	for line, ind in split_file {
-		fmt.println("RUnning...")
+		// fmt.println("RUnning...")
 		xyz := get_dimensions(line)
 		// sorts the dimensions by smallest to largest
 		for i in 1..<len(xyz) {
@@ -63,10 +63,10 @@ main :: proc() {
 		os.exit(2)
 	}
 	split := strings.split_lines(string(file))
+
 	problem_one := problem_one_solver(split)
 	fmt.println("Problem 1:", problem_one)
 
-	split_2 := strings.split_lines(string(file))
-	problem_two := problem_two_solver(split_2)
+	problem_two := problem_two_solver(split)
 	fmt.println("Problem 2:", problem_two)
 }
