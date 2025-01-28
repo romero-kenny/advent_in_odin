@@ -69,7 +69,7 @@ part_two :: proc(input: string) -> (total: int) {
 	for line in split_lines {
 		pairs := pair_check(line)
 		repeat := repeat_check(line)
-		if pairs && repeat {total = total + 1} else {fmt.println(line, pairs, repeat)}
+		if pairs && repeat {total = total + 1} 
 	}
 	return
 }
