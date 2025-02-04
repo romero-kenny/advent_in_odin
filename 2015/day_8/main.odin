@@ -73,27 +73,16 @@ part_one :: proc(input: string) -> (answer: int) {
 }
 
 encode_line :: proc(line: string) -> string_info {
-	buffer: [64]byte
-	builder := strings.builder_from_bytes(buffer[:])
-	strings.write_rune(&builder, '"')
-
 	count_encoded := len(line) > 1 ? 2 : 0
 	count_original: int
 	for char in line {
 		switch char {
 		case '"', '\\':
 			count_encoded = count_encoded + 2
-			strings.write_rune(&builder, '\\')
 		case:
 			count_encoded = count_encoded + 1
 		}
-		strings.write_rune(&builder, char)
 	}
-
-	strings.write_rune(&builder, '"')
-	tmp_str := strings.to_string(builder)
-	fmt.println("original: ", line, len(line), "\nencoded: ", tmp_str, count_encoded)
-
 	return {count_encoded, len(line)}
 }
 
